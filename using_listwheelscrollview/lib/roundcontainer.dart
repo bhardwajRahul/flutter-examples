@@ -4,7 +4,7 @@ class NewWidget extends StatelessWidget {
   final Widget l;
   final String s;
   double radius = 8;
-  NewWidget({this.size, this.l, this.s});
+  NewWidget({required this.size, required this.l, required this.s});
   final double size;
 
   @override
@@ -21,7 +21,6 @@ class NewWidget extends StatelessWidget {
             offset: Offset(5, 5),
             blurRadius: radius,
             color: Color(0XFF585858).withOpacity(.3),
-//            color: Color(0XFF383838).withOpacity(.4),
           ),
         ],
       ),

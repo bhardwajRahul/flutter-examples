@@ -123,18 +123,20 @@ Widget buildInnerBottomWidget(String cases) {
               fontSize: 20.0,
             ),
           )),
-          FlatButton(
+          TextButton(
             onPressed: () {
-              SimpleFoldingCellState foldingCellState =
-                  context.findAncestorStateOfType();
+              SimpleFoldingCellState? foldingCellState =
+                  context.findAncestorStateOfType<SimpleFoldingCellState>();
               foldingCellState?.toggleFold();
             },
             child: Text(
               "Close",
             ),
-            color: Colors.black,
-            shape: StadiumBorder(),
-            splashColor: Colors.white.withOpacity(0.5),
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.black,
+              shape: StadiumBorder(),
+              overlayColor: Colors.white.withOpacity(0.5),
+            ),
           ),
         ],
       ),

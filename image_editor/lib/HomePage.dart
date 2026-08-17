@@ -13,8 +13,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _selected = false; //to check if a image is selected or not
-  File _image; //here we will store the selected image and apply modifications
-  double _ImageContainerHeight=450, _ImageContainerWidth=400;
+  late File
+      _image; //here we will store the selected image and apply modifications
+  double _ImageContainerHeight = 450, _ImageContainerWidth = 400;
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +38,16 @@ class _HomePageState extends State<HomePage> {
               Spacer(
                 flex: 2,
               ),
-              RaisedButton(
-                  color: Colors.greenAccent[400],
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.greenAccent[400]),
                   child: Text(
                     'Get_Image', // to select a image from gallery
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
-                    var _Ifile = await GetiImg(_image); // function called from GetImg.dart
+                    var _Ifile = await GetiImg(
+                        _image); // function called from GetImg.dart
                     if (_Ifile != null) {
                       setState(() {
                         _image = _Ifile;
@@ -55,15 +58,17 @@ class _HomePageState extends State<HomePage> {
               Spacer(
                 flex: 1,
               ),
-              RaisedButton(
-                  color: Colors.greenAccent[400],
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.greenAccent[400]),
                   child: Text(
                     'Edit Image', //to start editing the shape, size, etc of the selected image
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
                     if (_image != null) {
-                      var _Ifile = await EditImg(_image); // function called from EditImg.dart
+                      var _Ifile = await EditImg(
+                          _image); // function called from EditImg.dart
                       if (_Ifile != null) {
                         setState(() {
                           _image = _Ifile;
@@ -90,15 +95,17 @@ class _HomePageState extends State<HomePage> {
               Spacer(
                 flex: 2,
               ),
-              RaisedButton(
-                  color: Colors.greenAccent[400],
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.greenAccent[400]),
                   child: Text(
                     'Apply Filters', //to start apply various photo filters to the selected image
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
                     if (_image != null) {
-                      var _Ifile = await ApplyFilters(context, _image); // function called from ApplyFilters.dart
+                      var _Ifile = await ApplyFilters(context,
+                          _image); // function called from ApplyFilters.dart
                       if (_Ifile != null) {
                         setState(() {
                           _image = _Ifile;
@@ -118,15 +125,17 @@ class _HomePageState extends State<HomePage> {
               Spacer(
                 flex: 1,
               ),
-              RaisedButton(
-                  color: Colors.greenAccent[400],
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.greenAccent[400]),
                   child: Text(
                     'Download Editted image', //to save the edited  image to gallery
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
                     if (_image != null) {
-                      await SaveImg(_image); // function called from SaveInGallery.dart
+                      await SaveImg(
+                          _image); // function called from SaveInGallery.dart
                     } else {
                       Fluttertoast.showToast(
                           msg: "Select a image first :-(",

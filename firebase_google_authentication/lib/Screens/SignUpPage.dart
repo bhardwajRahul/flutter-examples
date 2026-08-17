@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class SignUpPage extends StatefulWidget {
-  //const SignUpPage({Key? key}) : super(key: key);
   bool isLogin;
   SignUpPage(this.isLogin);
   @override
@@ -35,6 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -51,7 +51,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    (isLogin)?'Login':'SignUp',
+                    (isLogin) ? 'Login' : 'SignUp',
                     style: GoogleFonts.alice(
                       fontWeight: FontWeight.bold,
                       fontSize: 29,
@@ -61,7 +61,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 20,
                   ),
                   SvgPicture.asset(
-                    (isLogin)?'assets/signup.svg':'assets/signup.svg',
+                    (isLogin) ? 'assets/signup.svg' : 'assets/signup.svg',
                     width: size.width * 0.5,
                     height: size.height * 0.3,
                   ),
@@ -110,27 +110,27 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                           suffixIcon: showPassword
                               ? IconButton(
-                            icon: Icon(
-                              Icons.visibility_off,
-                              color: Color(0xFF6F35A5),
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                showPassword = !showPassword;
-                              });
-                            },
-                          )
+                                  icon: Icon(
+                                    Icons.visibility_off,
+                                    color: Color(0xFF6F35A5),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      showPassword = !showPassword;
+                                    });
+                                  },
+                                )
                               : IconButton(
-                            icon: Icon(
-                              Icons.visibility,
-                              color: Color(0xFF6F35A5),
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                showPassword = !showPassword;
-                              });
-                            },
-                          )),
+                                  icon: Icon(
+                                    Icons.visibility,
+                                    color: Color(0xFF6F35A5),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      showPassword = !showPassword;
+                                    });
+                                  },
+                                )),
                     ),
                   ),
                   SizedBox(
@@ -140,24 +140,26 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: size.width * 0.8,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(29),
-                      child: FlatButton(
-                        padding:
-                        EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 40),
+                          backgroundColor: Color(0xFF6F35A5),
+                        ),
                         onPressed: () {
                           String _email = email.text;
                           String _password = password.text;
-                          !(isLogin)?
-                          signUpClicked(_email, _password, context):
-                          loginClicked(_email, _password, context);
+                          !(isLogin)
+                              ? signUpClicked(_email, _password, context)
+                              : loginClicked(_email, _password, context);
                         },
                         child: Text(
-                          (isLogin)?'Login':'SignUp',
+                          (isLogin) ? 'Login' : 'SignUp',
                           style: GoogleFonts.alata(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 20),
                         ),
-                        color: Color(0xFF6F35A5),
                       ),
                     ),
                   ),
@@ -168,9 +170,12 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: size.width * 0.81,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(29),
-                      child: FlatButton.icon(
-                        padding:
-                        EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                      child: TextButton.icon(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 40),
+                          backgroundColor: Color(0xFF6F35A5),
+                        ),
                         onPressed: () {
                           final provider = Provider.of<GoogleSignInProvider>(
                               context,
@@ -187,13 +192,14 @@ class _SignUpPageState extends State<SignUpPage> {
                           color: Colors.white,
                         ),
                         label: Text(
-                          (isLogin)?'Login with Google':'SignUp with Google',
+                          (isLogin)
+                              ? 'Login with Google'
+                              : 'SignUp with Google',
                           style: GoogleFonts.alata(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 20),
                         ),
-                        color: Color(0xFF6F35A5),
                       ),
                     ),
                   ),
@@ -201,7 +207,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 20,
                   ),
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       setState(() {
                         isLogin = !isLogin;
                       });
@@ -210,13 +216,15 @@ class _SignUpPageState extends State<SignUpPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          (isLogin)?'Don\'t have an account?':'Already have an account?',
+                          (isLogin)
+                              ? 'Don\'t have an account?'
+                              : 'Already have an account?',
                           style: GoogleFonts.lato(
                             color: Color(0xFF6F35A5),
                           ),
                         ),
                         Text(
-                          (isLogin)?'SignUp':'SignIn',
+                          (isLogin) ? 'SignUp' : 'SignIn',
                           style: GoogleFonts.lato(
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF6F35A5),
@@ -236,16 +244,13 @@ class _SignUpPageState extends State<SignUpPage> {
 
   signUpClicked(String _email, String _password, BuildContext context) {
     FirebaseAuth.instance
-        .createUserWithEmailAndPassword(
-        email: _email, password: _password)
+        .createUserWithEmailAndPassword(email: _email, password: _password)
         .then((value) {
       setState(() {
         loggingIn = true;
       });
-      Future.delayed(
-          Duration(seconds: 1, milliseconds: 50), (){
-        Navigator.popUntil(
-            context, (route) => route.isFirst);
+      Future.delayed(Duration(seconds: 1, milliseconds: 50), () {
+        Navigator.popUntil(context, (route) => route.isFirst);
       });
     }).catchError((e) {
       showSnackBar();
@@ -253,15 +258,16 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   bool loginClicked(String _email, String _password, BuildContext context) {
-    FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _email, password: _password).then((value){
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: _email, password: _password)
+        .then((value) {
       setState(() {
         loggingIn = true;
       });
-      Future.delayed(Duration(seconds: 1,milliseconds: 50),(){
+      Future.delayed(Duration(seconds: 1, milliseconds: 50), () {
         Navigator.pop(context);
       });
-    }).catchError((e){
+    }).catchError((e) {
       showSnackBar();
     });
     return loggingIn;

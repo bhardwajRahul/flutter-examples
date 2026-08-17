@@ -50,14 +50,14 @@ class CountrySearchDelegate extends SearchDelegate {
         return Container(
           color: Color(0xFF2e282a),
           alignment: Alignment.topCenter,
-          child: SimpleFoldingCell(
+          child: SimpleFoldingCell.create(
             key: _foldingCellKey,
             frontWidget: Builder(
               builder: (BuildContext context) {
                 return GestureDetector(
                   onTap: () {
-                    SimpleFoldingCellState foldingCellState =
-                        context.findAncestorStateOfType();
+                    SimpleFoldingCellState? foldingCellState =
+                        context.findAncestorStateOfType<SimpleFoldingCellState>();
                     foldingCellState?.toggleFold();
                   },
                   child: Container(
@@ -70,17 +70,21 @@ class CountrySearchDelegate extends SearchDelegate {
                 );
               },
             ),
-            innerTopWidget: buildInnerTopWidget(
-              suggestionsList[index]['country'],
-              suggestionsList[index]['todayCases'].toString(),
-              suggestionsList[index]['deaths'].toString(),
-              suggestionsList[index]['todayDeaths'].toString(),
-              suggestionsList[index]['recovered'].toString(),
-              suggestionsList[index]['critical'].toString(),
-              suggestionsList[index]['casesPerOneMillion'].toString(),
+            innerWidget: Column(
+              children: [
+                buildInnerTopWidget(
+                  suggestionsList[index]['country'],
+                  suggestionsList[index]['todayCases'].toString(),
+                  suggestionsList[index]['deaths'].toString(),
+                  suggestionsList[index]['todayDeaths'].toString(),
+                  suggestionsList[index]['recovered'].toString(),
+                  suggestionsList[index]['critical'].toString(),
+                  suggestionsList[index]['casesPerOneMillion'].toString(),
+                ),
+                buildInnerBottomWidget(
+                    suggestionsList[index]['cases'].toString()),
+              ],
             ),
-            innerBottomWidget: buildInnerBottomWidget(
-                suggestionsList[index]['cases'].toString()),
             cellSize: Size(MediaQuery.of(context).size.width, 125),
             padding: EdgeInsets.all(15),
             animationDuration: Duration(milliseconds: 300),
@@ -122,14 +126,14 @@ class CountrySearchDelegate extends SearchDelegate {
         return Container(
           color: Color(0xFF2e282a),
           alignment: Alignment.topCenter,
-          child: SimpleFoldingCell(
+          child: SimpleFoldingCell.create(
             key: _foldingCellKey,
             frontWidget: Builder(
               builder: (BuildContext context) {
                 return GestureDetector(
                   onTap: () {
-                    SimpleFoldingCellState foldingCellState =
-                        context.findAncestorStateOfType();
+                    SimpleFoldingCellState? foldingCellState =
+                        context.findAncestorStateOfType<SimpleFoldingCellState>();
                     foldingCellState?.toggleFold();
                   },
                   child: Container(
@@ -142,17 +146,21 @@ class CountrySearchDelegate extends SearchDelegate {
                 );
               },
             ),
-            innerTopWidget: buildInnerTopWidget(
-              suggestionsList[index]['country'],
-              suggestionsList[index]['todayCases'].toString(),
-              suggestionsList[index]['deaths'].toString(),
-              suggestionsList[index]['todayDeaths'].toString(),
-              suggestionsList[index]['recovered'].toString(),
-              suggestionsList[index]['critical'].toString(),
-              suggestionsList[index]['casesPerOneMillion'].toString(),
-            ),
-            innerBottomWidget: buildInnerBottomWidget(
-                suggestionsList[index]['cases'].toString()),
+            innerWidget: Column(
+                children: [
+                  buildInnerTopWidget(
+                    suggestionsList[index]['country'],
+                    suggestionsList[index]['todayCases'].toString(),
+                    suggestionsList[index]['deaths'].toString(),
+                    suggestionsList[index]['todayDeaths'].toString(),
+                    suggestionsList[index]['recovered'].toString(),
+                    suggestionsList[index]['critical'].toString(),
+                    suggestionsList[index]['casesPerOneMillion'].toString(),
+                  ),
+                  buildInnerBottomWidget(
+                      suggestionsList[index]['cases'].toString()),
+                ],
+              ),
             cellSize: Size(MediaQuery.of(context).size.width, 125),
             padding: EdgeInsets.all(15),
             animationDuration: Duration(milliseconds: 300),

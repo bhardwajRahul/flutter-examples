@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-//import get package
 import 'package:get/get.dart';
 
 void main() {
@@ -45,7 +44,7 @@ class MyHomePage extends StatelessWidget {
               Obx(() => Text(
                     // we can show our variable by call .value method
                     '${_counter.value}',
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )),
             ],
           ),
