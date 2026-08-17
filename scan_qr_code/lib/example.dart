@@ -1,0 +1,80 @@
+// Example: Scan QR code
+import 'package:flutter/material.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:scan_qr_code/utils/qr_code_scanner.dart';
+import 'package:scan_qr_code/utils/scanner_box_border_painter.dart';
+
+class Example extends StatefulWidget {
+  const Example({super.key, this.title = 'Code Scanner Demo'});
+
+  final String title;
+
+  @override
+  State<Example> createState() => _ExampleState();
+}
+
+class _ExampleState extends State<Example> {
+  final MobileScannerController _mobileScannerController =
+      MobileScannerController();
+  late void Function(BarcodeCapture) _onDetect;
+  bool _isScanning = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _onDetect = (BarcodeCapture capture) {
+      _mobileScannerController.stop();
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Code info'),
+              content: Text(
+                  capture.barcodes.first.rawValue?.trim() ?? 'No data found',
+                  textAlign: TextAlign.center),
+              actions: [
+                TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('OK'))
+              ],
+            );
+          }).then((value) {
+        _mobileScannerController.start();
+        setState(() {
+          _isScanning = true;
+        });
+      });
+
+      setState(() {
+        _isScanning = false;
+      });
+    };
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(widget.title)),
+      body: Center(
+        child: SizedBox.square(
+          dimension: MediaQuery.of(context).size.width - 48.0,
+          child: Padding(
+            padding: const EdgeInsets.all(
+                2.5), // Required otherwise side edges hides under outside padding
+            child: CustomPaint(
+              foregroundPainter: ScannerBoxBorderPainter(
+                  borderColor: _isScanning ? Colors.black : Colors.green),
+              child: Padding(
+                padding: const EdgeInsets.all(
+                    2.5), // Required otherwise scanner hides under side edges
+                child: QRCodeScanner(
+                    mobileScannerController: _mobileScannerController,
+                    onDetect: _onDetect),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

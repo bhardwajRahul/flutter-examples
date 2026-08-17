@@ -1,4 +1,4 @@
-import 'package:custom_home_drawer/screen/home_screen.dart';
+import 'package:custom_home_drawer/example.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const Example(),
     );
   }
 }

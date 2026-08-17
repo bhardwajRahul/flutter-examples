@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'home_page.dart';
+import 'example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pen Assignement',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
-      home:HomePage(),
+      home: const Example(),
     );
   }
 }

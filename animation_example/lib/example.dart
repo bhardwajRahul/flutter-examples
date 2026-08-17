@@ -1,14 +1,15 @@
+// Example: A compass-like animation demo where tapping rotates a pen image
+// and points it toward a direction (north/west/south/east).
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Example extends StatefulWidget {
+  const Example({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _ExampleState createState() => _ExampleState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _ExampleState extends State<Example> with SingleTickerProviderStateMixin {
   late AnimationController controller;
   var target = 0.0;
   final Map<double, String> data = {
@@ -54,8 +55,7 @@ class _HomePageState extends State<HomePage>
                 child: TextButton(
                     onPressed: () {},
                     style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStateProperty.all(Colors.green)),
+                        backgroundColor: WidgetStateProperty.all(Colors.green)),
                     child: const Text(
                       "North",
                       style: TextStyle(
@@ -104,8 +104,7 @@ class _HomePageState extends State<HomePage>
                 child: TextButton(
                     onPressed: () {},
                     style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStateProperty.all(Colors.green)),
+                        backgroundColor: WidgetStateProperty.all(Colors.green)),
                     child: const Text(
                       "North",
                       style: TextStyle(

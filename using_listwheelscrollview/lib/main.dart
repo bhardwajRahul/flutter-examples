@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'listwheel.dart';
+import 'example.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Color(0XFF0A0E21),
       ),
-      home: Listwheel(),
+      home: const Example(),
     );
   }
 }

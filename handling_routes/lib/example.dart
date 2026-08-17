@@ -1,7 +1,8 @@
+// Example: A home screen with navigation to an About page via named routes.
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class Example extends StatelessWidget {
+  const Example({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,9 @@ class HomePage extends StatelessWidget {
               Text(
                 "Home Page\nClick on below icon to goto About Page",
                 // Setting the style for the Text
-                style: TextStyle(fontSize: 20.0,),
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
                 // Set text alignment to center
                 textAlign: TextAlign.center,
               ),
