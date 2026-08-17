@@ -27,6 +27,10 @@ flutter run
 
 New to Flutter? See [Getting Started](/documentation/GETTING_STARTED.md) for full setup and run instructions.
 
+Each example app is split into a wrapper and focused code. `lib/main.dart` sets up
+the `MaterialApp`, and `lib/example.dart` contains the code that demonstrates the
+concept. Open `lib/example.dart` to see what the app teaches.
+
 ## Documentation
 
 - [Example Apps](/documentation/EXAMPLES.md): all examples in this repository

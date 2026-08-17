@@ -30,6 +30,14 @@ cd simple_material_app
 flutter run
 ```
 
+## Where to look for the example code
+
+Every example app is split into two files:
+
+- `lib/main.dart`: the app wrapper. It only sets up the `MaterialApp` (title, theme, routes).
+- `lib/example.dart`: the focused example code. This file teaches the concept the
+  app demonstrates. Open it to see how the feature works.
+
 ## Useful links
 
 - [Flutter Widgets Catalog](https://flutter.dev/widgets/)
