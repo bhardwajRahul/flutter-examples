@@ -11,6 +11,8 @@ void main() {
 
 // Create a stateful widget
 class MyGetHttpData extends StatefulWidget {
+  const MyGetHttpData({super.key});
+
   @override
   MyGetHttpDataState createState() => MyGetHttpDataState();
 }
@@ -66,6 +68,7 @@ class MyGetHttpDataState extends State<MyGetHttpData> {
                 children: <Widget>[
                   Card(
                     child: Container(
+                      padding: const EdgeInsets.all(15.0),
                       child: Text(
                         // Read the name field value and set it in the Text widget
                         data![index]['name'],
@@ -73,8 +76,6 @@ class MyGetHttpDataState extends State<MyGetHttpData> {
                         style: TextStyle(
                             fontSize: 20.0, color: Colors.lightBlueAccent),
                       ),
-                      // added padding
-                      padding: const EdgeInsets.all(15.0),
                     ),
                   )
                 ],
@@ -89,6 +90,6 @@ class MyGetHttpDataState extends State<MyGetHttpData> {
     super.initState();
 
     // Call the getJSONData() method when the app initializes
-    this.getJSONData();
+    getJSONData();
   }
 }

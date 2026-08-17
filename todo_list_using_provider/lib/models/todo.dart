@@ -9,7 +9,7 @@ class Todo extends ChangeNotifier {
 
   /// Toggles the value of the item and notify to listeners
   void toggle() {
-    this.done = !this.done;
+    done = !done;
     notifyListeners();
   }
 }

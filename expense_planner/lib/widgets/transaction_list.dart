@@ -7,11 +7,11 @@ class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final Function deleteTx;
 
-  TransactionList(this.transactions, this.deleteTx);
+  const TransactionList(this.transactions, this.deleteTx, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 450,
       child: transactions.isEmpty
           ? Column(
@@ -23,7 +23,7 @@ class TransactionList extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                Container(
+                SizedBox(
                     height: 200,
                     child: Image.asset(
                       'assets/images/waiting.png',

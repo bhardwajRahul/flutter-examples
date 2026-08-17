@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project/models/ListTileModel.dart';
+import 'package:bottom_sheet/models/ListTileModel.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title});
 
   final String title;
 
@@ -22,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new ElevatedButton(
+            ElevatedButton(
               child: Text(
                 "Bottom Sheet",
                 style: TextStyle(fontSize: 20),
@@ -42,14 +42,14 @@ void _openBottomSheet(context) {
   showModalBottomSheet(
     context: context,
     builder: (builder) {
-      return new Container(
+      return Container(
         padding: EdgeInsets.all(5.0),
-        child: new Wrap(
+        child: Wrap(
           children: <Widget>[
             getListTile(Icons.more, Colors.black45, "More", context),
             getListTile(Icons.favorite, Colors.pink, "Favourites", context),
             getListTile(Icons.account_box, Colors.blue, "Profile", context),
-            new Divider(
+            Divider(
               thickness: 2.0,
               height: 10.0,
             ),

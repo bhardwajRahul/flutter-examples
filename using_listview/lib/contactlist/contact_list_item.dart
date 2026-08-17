@@ -4,7 +4,7 @@ import 'package:using_listview/contactlist/modal/contact.dart';
 class ContactListItem extends StatelessWidget {
   final ContactModal _contactModal;
 
-  ContactListItem(this._contactModal);
+  const ContactListItem(this._contactModal, {super.key});
 
   @override
   Widget build(BuildContext context) {

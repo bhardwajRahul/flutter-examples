@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class ExpansionPanelScreen extends StatefulWidget {
-  const ExpansionPanelScreen({Key? key}) : super(key: key);
+  const ExpansionPanelScreen({super.key});
 
   @override
   State<ExpansionPanelScreen> createState() => _ExpansionPanelScreenState();

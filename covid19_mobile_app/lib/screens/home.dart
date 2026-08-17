@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget {
   final refreshKey = GlobalKey<RefreshIndicatorState>();
 
+  Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +30,9 @@ class Home extends StatelessWidget {
               future: getAllData(),
               builder: (context, snapshot) {
                 // Display CircularProgressIndicator if data isn't fetched yet
-                if (snapshot.connectionState == ConnectionState.waiting)
+                if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
+                }
                 // If in case an error occurs
                 if (snapshot.hasError) {
                   return Container(

@@ -7,6 +7,8 @@ void main() {
 }
 
 class MyButton extends StatefulWidget {
+  const MyButton({super.key});
+
   @override
   MyButtonState createState() {
     return MyButtonState();
@@ -40,12 +42,12 @@ class MyButtonState extends State<MyButton> {
               Text(displayedString, style: TextStyle(fontSize: 40.0)),
               Padding(padding: EdgeInsets.all(10.0)),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                onPressed: onPressOfButton,
                 child: Text(
                   "Press me",
                   style: TextStyle(color: Colors.white),
                 ),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                onPressed: onPressOfButton,
               )
             ],
           ),

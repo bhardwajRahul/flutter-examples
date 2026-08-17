@@ -4,7 +4,7 @@ import 'package:news_memes_app/services/getMemes.dart';
 import 'package:share_plus/share_plus.dart';
 
 class MemeScreen extends StatefulWidget {
-  const MemeScreen({Key? key}) : super(key: key);
+  const MemeScreen({super.key});
 
   @override
   _MemeScreenState createState() => _MemeScreenState();

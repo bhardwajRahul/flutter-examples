@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "studio.sdev.biometrics"
+    namespace = "github.nisrulz.biometrics"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "studio.sdev.biometrics"
+        applicationId = "github.nisrulz.biometrics"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

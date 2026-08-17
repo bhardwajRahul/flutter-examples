@@ -4,17 +4,13 @@ import 'package:news_memes_app/services/getNews.dart';
 class NewsScreen extends StatefulWidget {
   final List<NewsModel> news;
 
-  NewsScreen(this.news);
+  const NewsScreen(this.news, {super.key});
 
   @override
-  _NewsScreenState createState() => _NewsScreenState(news);
+  State<NewsScreen> createState() => _NewsScreenState();
 }
 
 class _NewsScreenState extends State<NewsScreen> {
-  List<NewsModel> news;
-
-  _NewsScreenState(this.news);
-
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -25,7 +21,7 @@ class _NewsScreenState extends State<NewsScreen> {
           child: InteractiveViewer(
             child: ListView(
               // magnification: 1.2,
-              children: news
+              children: widget.news
                   .map((e) => Padding(
                         padding: const EdgeInsets.symmetric(
                             vertical: 15, horizontal: 20),

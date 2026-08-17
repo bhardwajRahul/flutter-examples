@@ -12,6 +12,8 @@ void main() {
 }
 
 class MyHome extends StatefulWidget {
+  const MyHome({super.key});
+
   @override
   MyHomeState createState() => MyHomeState();
 }

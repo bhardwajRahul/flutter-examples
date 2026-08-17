@@ -8,6 +8,8 @@ final counter = Counter(); // Instantiate the store
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage();
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

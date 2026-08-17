@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage>
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: size.height,
         child: Stack(
@@ -52,16 +53,16 @@ class _HomePageState extends State<HomePage>
                 top: 80,
                 child: TextButton(
                     onPressed: () {},
+                    style: ButtonStyle(
+                        backgroundColor:
+                            WidgetStateProperty.all(Colors.green)),
                     child: const Text(
                       "North",
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.white),
-                    ),
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.green)))),
+                    ))),
             Positioned(
                 top: size.height * 0.48,
                 left: -15,
@@ -69,16 +70,16 @@ class _HomePageState extends State<HomePage>
                   angle: 190.1,
                   child: TextButton(
                       onPressed: () {},
+                      style: ButtonStyle(
+                          backgroundColor:
+                              WidgetStateProperty.all(Colors.green)),
                       child: const Text(
                         "East",
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
                             color: Colors.white),
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.green))),
+                      )),
                 )),
             Positioned(
                 top: size.height * 0.48,
@@ -87,31 +88,31 @@ class _HomePageState extends State<HomePage>
                   angle: -190.1,
                   child: TextButton(
                       onPressed: () {},
+                      style: ButtonStyle(
+                          backgroundColor:
+                              WidgetStateProperty.all(Colors.green)),
                       child: const Text(
                         "West",
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
                             color: Colors.white),
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.green))),
+                      )),
                 )),
             Positioned(
                 bottom: 80,
                 child: TextButton(
                     onPressed: () {},
+                    style: ButtonStyle(
+                        backgroundColor:
+                            WidgetStateProperty.all(Colors.green)),
                     child: const Text(
                       "North",
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.white),
-                    ),
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.green)))),
+                    ))),
             AnimatedBuilder(
               animation: controller,
               child: Container(

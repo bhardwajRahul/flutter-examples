@@ -8,6 +8,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -63,7 +67,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  loadFromAsset() async {
+  Future<void> loadFromAsset() async {
     setState(() {
       isLoading = true;
     });
@@ -79,7 +83,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  loadFromURL() async {
+  Future<void> loadFromURL() async {
     setState(() {
       isLoading = true;
     });

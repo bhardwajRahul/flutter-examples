@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "cu.makkura.flutter_new_provider_todo"
+    namespace = "github.nisrulz.todo_list_using_provider"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "cu.makkura.flutter_new_provider_todo"
+        applicationId = "github.nisrulz.todo_list_using_provider"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

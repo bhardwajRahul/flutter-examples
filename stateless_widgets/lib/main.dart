@@ -9,6 +9,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Declare some constants
@@ -64,7 +66,6 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
 
@@ -74,7 +75,7 @@ class MyCard extends StatelessWidget {
   final Widget title;
 
   // Constructor. {} here denote that they are optional values i.e you can use as: MyCard()
-  MyCard({required this.title, required this.icon});
+  const MyCard({super.key, required this.title, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +85,7 @@ class MyCard extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(20.0),
           child: Column(
-            children: <Widget>[this.title, this.icon],
+            children: <Widget>[title, icon],
           ),
         ),
       ),

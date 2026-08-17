@@ -16,6 +16,8 @@ class Note {
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title});
 
   final String title;
   @override
@@ -74,6 +76,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  @override
+  void dispose() {
+    _noteAddedStream.cancel();
+    super.dispose();
+  }
+
   // The note has to be cleared from the database and the local list
   void _deleteNote(int position) {
     String id = items[position].id;
@@ -97,8 +105,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               padding: EdgeInsets.all(15.0),
               child: TextField(
-                style: new TextStyle(
-                    fontSize: 24.0, height: 2.0, color: Colors.black),
+                style:
+                    TextStyle(fontSize: 24.0, height: 2.0, color: Colors.black),
                 decoration: InputDecoration(
                     border: InputBorder.none, hintText: 'Add a note'),
                 controller: inputController,

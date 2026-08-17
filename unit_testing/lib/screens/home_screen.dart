@@ -5,6 +5,8 @@ import 'package:unit_testing/model/location.dart';
 import '../helpers.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

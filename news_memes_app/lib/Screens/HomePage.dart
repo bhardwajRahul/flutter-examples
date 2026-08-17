@@ -5,7 +5,7 @@ import 'package:news_memes_app/Screens/NewsScreen.dart';
 import 'package:news_memes_app/services/getNews.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();

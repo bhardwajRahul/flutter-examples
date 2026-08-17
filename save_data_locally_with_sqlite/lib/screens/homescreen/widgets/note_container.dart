@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
 class NoteContainer extends StatelessWidget {
   final String text;
   final String datetime;
-  NoteContainer({Key? key, this.text = '', this.datetime = ''})
-      : super(key: key);
+  const NoteContainer({super.key, this.text = '', this.datetime = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +13,7 @@ class NoteContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.blue.withOpacity(.4),
+            color: Colors.blue.withValues(alpha: .4),
             spreadRadius: 2.5,
             blurRadius: 2.5,
           )
@@ -27,7 +25,7 @@ class NoteContainer extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             child: Text(
-              '$datetime',
+              datetime,
               style: TextStyle(
                 color: Colors.grey.shade700,
                 fontSize: 12,
@@ -41,7 +39,7 @@ class NoteContainer extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   child: Text(
-                    '$text',
+                    text,
                   ),
                 ),
               ),

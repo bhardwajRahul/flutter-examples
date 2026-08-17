@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 350),
@@ -18,11 +19,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   int _counter = 0;
   bool _canDragged = false;
 
-  void _openCloseDrawer() => _controller.isDismissed ? _controller.forward() : _controller.reverse();
+  void _openCloseDrawer() =>
+      _controller.isDismissed ? _controller.forward() : _controller.reverse();
 
   void _onDragStart(DragStartDetails details) {
-    bool isDragLeft = _controller.isDismissed && details.globalPosition.dx < dragStartPosition;
-    bool isDragRight = _controller.isCompleted && details.globalPosition.dx > dragStartPosition;
+    bool isDragLeft = _controller.isDismissed &&
+        details.globalPosition.dx < dragStartPosition;
+    bool isDragRight = _controller.isCompleted &&
+        details.globalPosition.dx > dragStartPosition;
     _canDragged = isDragLeft || isDragRight;
   }
 
@@ -38,7 +42,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       return;
     }
     if (details.velocity.pixelsPerSecond.dx.abs() >= 365) {
-      var visualVelocity = details.velocity.pixelsPerSecond.dx / MediaQuery.of(context).size.width;
+      var visualVelocity = details.velocity.pixelsPerSecond.dx /
+          MediaQuery.of(context).size.width;
       _controller.fling(velocity: visualVelocity);
     } else if (_controller.value < 0.5) {
       _controller.reverse();
@@ -66,9 +71,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               _homeDrawer(context),
               Transform(
                 transform: Matrix4.identity()
-                  ..translate(slide)
+                  ..translateByDouble(slide, 0, 0, 1)
                   ..rotateZ(rotate)
-                  ..scale(scale),
+                  ..scaleByDouble(scale, scale, scale, 1),
                 alignment: Alignment.centerLeft,
                 child: _homeView(context),
               )

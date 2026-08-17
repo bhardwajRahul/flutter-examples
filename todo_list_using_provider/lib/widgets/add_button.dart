@@ -5,6 +5,8 @@ import '../models/todo.dart';
 import '../notifiers/todo_list.dart';
 
 class AddButton extends StatelessWidget {
+  const AddButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     final todoList = Provider.of<TodoList>(context, listen: false);
@@ -13,7 +15,7 @@ class AddButton extends StatelessWidget {
     return FloatingActionButton(
       onPressed: () {
         todoList.add(
-          new Todo(id: '${todoList.list.length}', title: 'tituloTodo${todoList.list.length}')
+          Todo(id: '${todoList.list.length}', title: 'tituloTodo${todoList.list.length}')
         );
       },
       tooltip: 'Increment',

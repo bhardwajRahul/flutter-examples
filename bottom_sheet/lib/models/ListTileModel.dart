@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 ListTile getListTile(icon, iconColor, titleText, context) {
-  return new ListTile(
-    leading: new Container(
+  return ListTile(
+    leading: SizedBox(
       width: 4.0,
       child: Icon(
         icon,
@@ -10,7 +10,7 @@ ListTile getListTile(icon, iconColor, titleText, context) {
         size: 24.0,
       ),
     ),
-    title: new Text(
+    title: Text(
       titleText,
       style: TextStyle(
         fontSize: 14.0,

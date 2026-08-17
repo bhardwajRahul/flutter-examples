@@ -7,6 +7,8 @@ import 'package:lunch_app/views/prototype/widgets/options_selector.dart';
 import 'bottom_nav/bottom_nav.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -21,7 +23,10 @@ class _HomeState extends State<Home> {
           child: SvgPicture.asset(
             "assets/nav/drawer.svg",
             width: 25,
-            color: Colors.black.withOpacity(0.7),
+            colorFilter: ColorFilter.mode(
+              Colors.black.withValues(alpha: 0.7),
+              BlendMode.srcIn,
+            ),
           ),
         ),
       ),

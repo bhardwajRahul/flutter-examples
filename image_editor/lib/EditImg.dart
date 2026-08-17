@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 
-EditImg(_image) async {
+Future<dynamic> EditImg(image) async {
   var CroppedImg =
-      await ImageCropper().cropImage(sourcePath: _image.path, uiSettings: [
+      await ImageCropper().cropImage(sourcePath: image.path, uiSettings: [
     AndroidUiSettings(
         toolbarTitle: 'Cropper',
         toolbarColor: Colors.greenAccent[400],
@@ -15,8 +15,9 @@ EditImg(_image) async {
     ),
   ]);
   if (CroppedImg != null) {
-    _image = CroppedImg;
-    return _image;
-  } else
+    image = CroppedImg;
+    return image;
+  } else {
     return null;
+  }
 }

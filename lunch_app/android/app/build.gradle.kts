@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "studio.sdev.lunch_app"
+    namespace = "github.nisrulz.lunch_app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "studio.sdev.lunch_app"
+        applicationId = "github.nisrulz.lunch_app"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

@@ -9,6 +9,8 @@ void main() {
 }
 
 class MyHome extends StatefulWidget {
+  const MyHome({super.key});
+
   @override
   MyHomeState createState() => MyHomeState();
 }
@@ -47,7 +49,7 @@ class MyHomeState extends State<MyHome> {
       body: Container(
           child: Stepper(
         // Using a variable here for handling the currentStep
-        currentStep: this.current_step,
+        currentStep: current_step,
         // List the steps you would like to have
         steps: my_steps,
         // Define the type of Stepper style
@@ -63,7 +65,7 @@ class MyHomeState extends State<MyHome> {
             current_step = step;
           });
           // Log function call
-          print("onStepTapped : " + step.toString());
+          print("onStepTapped : $step");
         },
         onStepCancel: () {
           // On hitting cancel button, change the state
@@ -77,7 +79,7 @@ class MyHomeState extends State<MyHome> {
             }
           });
           // Log function call
-          print("onStepCancel : " + current_step.toString());
+          print("onStepCancel : $current_step");
         },
         // On hitting continue button, change the state
         onStepContinue: () {
@@ -91,7 +93,7 @@ class MyHomeState extends State<MyHome> {
             }
           });
           // Log function call
-          print("onStepContinue : " + current_step.toString());
+          print("onStepContinue : $current_step");
         },
       )),
     );

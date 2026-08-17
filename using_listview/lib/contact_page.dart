@@ -3,7 +3,9 @@ import 'package:using_listview/contactlist/contact_list.dart';
 import 'package:using_listview/contactlist/modal/contact.dart';
 
 class ContactPage extends StatelessWidget {
-  _buildContactList() {
+  const ContactPage({super.key});
+
+  List<ContactModal> _buildContactList() {
     return <ContactModal>[
       const ContactModal(
           fullName: 'Romain Hoogmoed', email: 'romain.hoogmoed@example.com'),

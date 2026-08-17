@@ -12,6 +12,8 @@ void main() {
 }
 
 class MyHome extends StatefulWidget {
+  const MyHome({super.key});
+
   @override
   MyHomeState createState() => MyHomeState();
 }
@@ -49,9 +51,9 @@ class MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
       // Set the TabBar view as the body of the Scaffold
       body: TabBarView(
         // Add tabs as widgets
-        children: <Widget>[FirstTab(), SecondTab(), ThirdTab()],
-        // set the controller
         controller: controller,
+        // Add tabs as widgets
+        children: <Widget>[FirstTab(), SecondTab(), ThirdTab()],
       ),
       // Set the bottom navigation bar
       bottomNavigationBar: Material(

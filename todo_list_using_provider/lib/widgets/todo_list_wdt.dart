@@ -6,6 +6,8 @@ import '../notifiers/todo_list.dart';
 import '../widgets/todo_list_item_wdt.dart';
 
 class TodoListWdt extends StatelessWidget {
+  const TodoListWdt({super.key});
+
   @override
   Widget build(BuildContext context) {
     print('building Todo List Wdt');
@@ -20,7 +22,7 @@ class TodoListWdt extends StatelessWidget {
           itemBuilder: (context, index) {
             return ChangeNotifierProvider<Todo>(
                 create: (context) => todoList.list[index],
-                child: new TodoListItemWdt()
+                child: TodoListItemWdt()
             );
           },
         );

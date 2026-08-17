@@ -1,9 +1,10 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:lunch_app/views/prototype/widgets/carousel_indicator.dart';
 
 class FoodDetailView extends StatefulWidget {
+  const FoodDetailView({super.key});
+
   @override
   _FoodDetailViewState createState() => _FoodDetailViewState();
 }

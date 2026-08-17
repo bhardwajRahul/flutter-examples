@@ -3,6 +3,8 @@ import 'package:navigation_drawer/screens/account.dart';
 import 'package:navigation_drawer/screens/settings.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   HomeScreenState createState() => HomeScreenState();
 }
@@ -11,11 +13,11 @@ class HomeScreenState extends State<HomeScreen> {
   Drawer getNavDrawer(BuildContext context) {
     var headerChild = DrawerHeader(child: Text("Header"));
     var aboutChild = AboutListTile(
-        child: Text("About"),
         applicationName: "Application Name",
         applicationVersion: "v1.0.0",
         applicationIcon: Icon(Icons.adb),
-        icon: Icon(Icons.info));
+        icon: Icon(Icons.info),
+        child: Text("About"));
 
     ListTile getNavItem(var icon, String s, String routeName) {
       return ListTile(

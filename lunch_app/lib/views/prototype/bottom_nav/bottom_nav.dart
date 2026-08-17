@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatelessWidget {
+  const BottomNav({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +43,7 @@ class BottomNav extends StatelessWidget {
                 Expanded(
                   child: Icon(
                     Icons.shopping_basket,
-                    color: Colors.white.withOpacity(0.5),
+                    color: Colors.white.withValues(alpha: 0.5),
                   ),
                 ),
               ],

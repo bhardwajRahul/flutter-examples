@@ -8,6 +8,8 @@ import 'dart:convert';
 import 'package:folding_cell/folding_cell.dart';
 
 class CountryList extends StatelessWidget {
+  const CountryList({super.key});
+
   @override
   Widget build(BuildContext context) {
     List<dynamic> results = [];
@@ -31,25 +33,27 @@ class CountryList extends StatelessWidget {
       body: FutureBuilder(
         future: getAllCountriesData(),
         builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting)
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
               child: CircularProgressIndicator(),
             );
-          if (snapshot.hasError)
+          }
+          if (snapshot.hasError) {
             return Center(
               child: Text("Error! please check you wifi connection"),
             );
+          }
           results = jsonDecode(snapshot.data);
           return ListView.builder(
             physics: BouncingScrollPhysics(),
             itemCount: results.length,
             itemBuilder: (context, index) {
-              var _foldingCellKey = GlobalKey<SimpleFoldingCellState>();
+              var foldingCellKey = GlobalKey<SimpleFoldingCellState>();
               return Container(
                 color: Color(0xFF2e282a),
                 alignment: Alignment.topCenter,
                 child: SimpleFoldingCell.create(
-                  key: _foldingCellKey,
+                  key: foldingCellKey,
                   frontWidget: Builder(
                     builder: (BuildContext context) {
                       return GestureDetector(

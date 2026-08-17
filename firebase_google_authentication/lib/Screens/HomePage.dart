@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               width: size.width * 0.8,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(29),
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
         SizedBox(
           height: 15,
         ),
-        Container(
+        SizedBox(
           width: size.width * 0.8,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(29),

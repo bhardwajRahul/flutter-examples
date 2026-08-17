@@ -21,7 +21,7 @@ class CarouselIndicator extends StatelessWidget {
               height: 8,
               width: 8,
               decoration: BoxDecoration(
-                color: active ? Colors.white : Colors.white.withOpacity(0.4),
+                color: active ? Colors.white : Colors.white.withValues(alpha: 0.4),
                 shape: BoxShape.circle,
               ),
               margin: const EdgeInsets.only(right: 5),

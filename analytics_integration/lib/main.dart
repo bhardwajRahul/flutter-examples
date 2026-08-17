@@ -21,6 +21,8 @@ class FlutterAnalyticsApp extends StatelessWidget {
   static FirebaseAnalyticsObserver observer =
       FirebaseAnalyticsObserver(analytics: analytics);
 
+  const FlutterAnalyticsApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,7 +50,7 @@ class FlutterAnalyticsHome extends StatefulWidget {
   final FirebaseAnalytics analytics;
   final FirebaseAnalyticsObserver observer;
 
-  FlutterAnalyticsHome({
+  const FlutterAnalyticsHome({
     super.key,
     required this.title,
     required this.analytics,

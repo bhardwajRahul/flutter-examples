@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gallery_saver_plus/gallery_saver.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-SaveImg(_image) async {
-  var result =
-      await GallerySaver.saveImage(_image.path, albumName: 'ImageEditor')
-          .then((bool? success) {
+Future<void> SaveImg(image) async {
+  await GallerySaver.saveImage(image.path, albumName: 'ImageEditor')
+      .then((bool? success) {
     success == true
         ? Fluttertoast.showToast(
             msg: "Image saved in gallery/ImageEditor",

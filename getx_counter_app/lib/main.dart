@@ -7,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +22,12 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     // create variable that hold out number with .obs parameter (.obs comes from getx state management)
-    var _counter = 0.obs;
+    var counter = 0.obs;
     return Scaffold(
         appBar: AppBar(
           title: const Text("Counter app with Getx (Get) state management"),
@@ -43,7 +43,7 @@ class MyHomePage extends StatelessWidget {
               // in get (getx) we must ue Obx for the widget that we want to change like setState in statefull widget\
               Obx(() => Text(
                     // we can show our variable by call .value method
-                    '${_counter.value}',
+                    '${counter.value}',
                     style: Theme.of(context).textTheme.headlineSmall,
                   )),
             ],
@@ -51,7 +51,7 @@ class MyHomePage extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           // we can plus or everything that we want by add .value method to our obs variable
-          onPressed: () => _counter.value++,
+          onPressed: () => counter.value++,
           tooltip: 'Increment',
           child: const Icon(Icons.add),
         ));

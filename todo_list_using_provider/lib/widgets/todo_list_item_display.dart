@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import '../models/todo.dart';
 
 class TodoListItemDisplay extends StatelessWidget {
+  const TodoListItemDisplay({super.key});
+
   @override
   Widget build(BuildContext context) {
     print('rebuilding Todo List Item Display');

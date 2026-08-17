@@ -10,6 +10,8 @@ void main() {
 }
 
 class MyHome extends StatefulWidget {
+  const MyHome({super.key});
+
   @override
   MyHomeState createState() {
     return MyHomeState();
@@ -30,7 +32,7 @@ class MyHomeState extends State<MyHome> {
     _loadSavedData();
   }
 
-  _loadSavedData() async {
+  Future<void> _loadSavedData() async {
     // Get shared preference instance
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -39,7 +41,7 @@ class MyHomeState extends State<MyHome> {
     });
   }
 
-  _onIncrementHit() async {
+  Future<void> _onIncrementHit() async {
     // Get shared preference instance
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -52,7 +54,7 @@ class MyHomeState extends State<MyHome> {
     prefs.setInt(key, counter);
   }
 
-  _onDecrementHit() async {
+  Future<void> _onDecrementHit() async {
     // Get shared preference instance
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -82,16 +84,14 @@ class MyHomeState extends State<MyHome> {
             children: <Widget>[
               Text(
                 '$counter',
-                textScaleFactor: 10.0,
+                textScaler: TextScaler.linear(10.0),
               ),
               Padding(padding: EdgeInsets.all(10.0)),
               ElevatedButton(
-                  onPressed: _onIncrementHit,
-                  child: Text('Increment Counter')),
+                  onPressed: _onIncrementHit, child: Text('Increment Counter')),
               Padding(padding: EdgeInsets.all(10.0)),
               ElevatedButton(
-                  onPressed: _onDecrementHit,
-                  child: Text('Decrement Counter')),
+                  onPressed: _onDecrementHit, child: Text('Decrement Counter')),
             ],
           ),
         ),

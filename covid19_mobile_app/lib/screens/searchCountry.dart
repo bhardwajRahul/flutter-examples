@@ -46,12 +46,12 @@ class CountrySearchDelegate extends SearchDelegate {
       physics: BouncingScrollPhysics(),
       itemCount: suggestionsList.length,
       itemBuilder: (context, index) {
-        var _foldingCellKey = GlobalKey<SimpleFoldingCellState>();
+        var foldingCellKey = GlobalKey<SimpleFoldingCellState>();
         return Container(
           color: Color(0xFF2e282a),
           alignment: Alignment.topCenter,
           child: SimpleFoldingCell.create(
-            key: _foldingCellKey,
+            key: foldingCellKey,
             frontWidget: Builder(
               builder: (BuildContext context) {
                 return GestureDetector(
@@ -122,12 +122,12 @@ class CountrySearchDelegate extends SearchDelegate {
       physics: BouncingScrollPhysics(),
       itemCount: suggestionsList.length,
       itemBuilder: (context, index) {
-        var _foldingCellKey = GlobalKey<SimpleFoldingCellState>();
+        var foldingCellKey = GlobalKey<SimpleFoldingCellState>();
         return Container(
           color: Color(0xFF2e282a),
           alignment: Alignment.topCenter,
           child: SimpleFoldingCell.create(
-            key: _foldingCellKey,
+            key: foldingCellKey,
             frontWidget: Builder(
               builder: (BuildContext context) {
                 return GestureDetector(

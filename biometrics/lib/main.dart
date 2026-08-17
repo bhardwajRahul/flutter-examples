@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 void main() => runApp(Biometrics());
 
 class Biometrics extends StatelessWidget {
+  const Biometrics({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,6 +19,8 @@ class Biometrics extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   State<Home> createState() => _HomeState();
 }
@@ -72,6 +76,7 @@ class _HomeState extends State<Home> {
                         });
                       } catch (e) {
                         // ---- Verification Failed
+                        if (!context.mounted) return;
                         showDialog(
                           context: context,
                           builder: (c) => AlertDialog(

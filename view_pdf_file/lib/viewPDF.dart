@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ViewPDF extends StatelessWidget {
   final Widget viewer;
-  ViewPDF({
+  const ViewPDF({super.key, 
     required this.viewer,
   });
 

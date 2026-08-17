@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 // this is the rounded rectangle card widget that appears on the homescreen
 Widget infoCard(BuildContext context, String title, String number) {
   return Card(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.0)),
+    color: Color(0xfff44e3f),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -25,7 +27,5 @@ Widget infoCard(BuildContext context, String title, String number) {
         ),
       ],
     ),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.0)),
-    color: Color(0xfff44e3f),
   );
 }

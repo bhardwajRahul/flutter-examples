@@ -7,23 +7,28 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class SignUpPage extends StatefulWidget {
-  bool isLogin;
-  SignUpPage(this.isLogin);
+  final bool isLogin;
+  const SignUpPage(this.isLogin, {super.key});
   @override
-  _SignUpPageState createState() => _SignUpPageState(isLogin);
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  bool isLogin;
-  _SignUpPageState(this.isLogin);
+  late bool isLogin;
+
+  @override
+  void initState() {
+    super.initState();
+    isLogin = widget.isLogin;
+  }
 
   bool loggingIn = false;
-  TextEditingController email = new TextEditingController();
-  TextEditingController password = new TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   bool showPassword = false;
 
   void showSnackBar() {
-    final snackBar = new SnackBar(
+    final snackBar = SnackBar(
       content: Text('Invalid Credentials!'),
       backgroundColor: Colors.red,
       padding: EdgeInsets.symmetric(horizontal: 10),
@@ -40,7 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: size.height,
           width: double.infinity,
           child: Stack(
@@ -136,7 +141,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(
                     height: 30,
                   ),
-                  Container(
+                  SizedBox(
                     width: size.width * 0.8,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(29),
@@ -147,11 +152,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           backgroundColor: Color(0xFF6F35A5),
                         ),
                         onPressed: () {
-                          String _email = email.text;
-                          String _password = password.text;
+                          String emailText = email.text;
+                          String passwordText = password.text;
                           !(isLogin)
-                              ? signUpClicked(_email, _password, context)
-                              : loginClicked(_email, _password, context);
+                              ? signUpClicked(emailText, passwordText, context)
+                              : loginClicked(emailText, passwordText, context);
                         },
                         child: Text(
                           (isLogin) ? 'Login' : 'SignUp',
@@ -166,7 +171,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(
                     height: 18,
                   ),
-                  Container(
+                  SizedBox(
                     width: size.width * 0.81,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(29),
@@ -181,6 +186,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               context,
                               listen: false);
                           provider.googleLogin().then((value) {
+                            if (!context.mounted) return;
                             Navigator.popUntil(
                                 context, (route) => route.isFirst);
                           }).catchError((onError) {
@@ -242,14 +248,15 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  signUpClicked(String _email, String _password, BuildContext context) {
+  void signUpClicked(String email, String password, BuildContext context) {
     FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: _email, password: _password)
+        .createUserWithEmailAndPassword(email: email, password: password)
         .then((value) {
       setState(() {
         loggingIn = true;
       });
       Future.delayed(Duration(seconds: 1, milliseconds: 50), () {
+        if (!context.mounted) return;
         Navigator.popUntil(context, (route) => route.isFirst);
       });
     }).catchError((e) {
@@ -257,14 +264,15 @@ class _SignUpPageState extends State<SignUpPage> {
     });
   }
 
-  bool loginClicked(String _email, String _password, BuildContext context) {
+  bool loginClicked(String email, String password, BuildContext context) {
     FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: _email, password: _password)
+        .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
       setState(() {
         loggingIn = true;
       });
       Future.delayed(Duration(seconds: 1, milliseconds: 50), () {
+        if (!context.mounted) return;
         Navigator.pop(context);
       });
     }).catchError((e) {

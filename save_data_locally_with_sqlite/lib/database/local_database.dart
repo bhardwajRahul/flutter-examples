@@ -15,17 +15,18 @@ class LocalDatabase {
   static final LocalDatabase instance = LocalDatabase._privateConstructor();
 
   Future<Database?> get database async {
-    if (_database != null)
+    if (_database != null) {
       return _database; //if database already present it return the database else create a new one then return it
+    }
     _database = await _initDatabase();
     return _database;
   }
 
-  _initDatabase() async {
+  Future<Database> _initDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentsDirectory.path, '$_databaseName');
+    String path = join(documentsDirectory.path, _databaseName);
     return await openDatabase(path, version: _databaseVersion,
-        onCreate: (db, int) async {
+        onCreate: (db, version) async {
       await db.execute('''
               CREATE TABLE data (
               datetime TEXT,

@@ -14,7 +14,7 @@ class MyGridView {
             mainAxisSize: MainAxisSize.min,
             verticalDirection: VerticalDirection.down,
             children: <Widget>[
-              Image(image: AssetImage('data_repo/img/' + image)),
+              Image(image: AssetImage('data_repo/img/$image')),
               Center(
                 child: Text(name),
               )

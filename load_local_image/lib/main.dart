@@ -7,6 +7,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,19 +16,18 @@ class MyApp extends StatelessWidget {
           title: Text("Load local image"),
         ),
         body: Container(
-          child: Center(
-            child: Text(
-              "Hello World!",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          // Set the image as the background of the Container
           decoration: BoxDecoration(
               image: DecorationImage(
                   // Load image from assets
                   image: AssetImage('data_repo/img/bg1.jpg'),
                   // Make the image cover the whole area
                   fit: BoxFit.cover)),
+          child: Center(
+            child: Text(
+              "Hello World!",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
         ));
   }
 }

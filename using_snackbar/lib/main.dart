@@ -5,6 +5,8 @@ void main() {
 }
 
 class ContactPage extends StatelessWidget {
+  const ContactPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +21,8 @@ class ContactPage extends StatelessWidget {
 }
 
 class MyButton extends StatelessWidget {
+  const MyButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

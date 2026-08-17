@@ -3,7 +3,7 @@ import 'package:unit_testing/model/location.dart';
 
 class PlaceInfo extends StatelessWidget {
   final Location data;
-  PlaceInfo({required this.data});
+  const PlaceInfo({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class PlaceInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            data.name + "\n" + data.country,
+            "${data.name}\n${data.country}",
             style: TextStyle(
               fontSize: 25,
               color: Colors.black,

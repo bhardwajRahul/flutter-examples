@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class InfoPage extends StatefulWidget {
-  const InfoPage({Key? key}) : super(key: key);
+  const InfoPage({super.key});
 
   @override
   _InfoPageState createState() => _InfoPageState();
@@ -53,7 +53,7 @@ class _InfoPageState extends State<InfoPage> {
                   height: 15,
                 ),
                 Text(
-                  user!.email ?? '',
+                  user.email ?? '',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
               ],

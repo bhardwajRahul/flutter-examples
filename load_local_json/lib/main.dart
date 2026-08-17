@@ -9,6 +9,8 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   MyAppState createState() => MyAppState();
 }
@@ -30,7 +32,7 @@ class MyAppState extends State<MyApp> {
                     .loadString('data_repo/starwars_data.json'),
                 builder: (context, snapshot) {
                   // Decode the JSON
-                  var new_data = json.decode(snapshot.data.toString());
+                  var newData = json.decode(snapshot.data.toString());
 
                   return ListView.builder(
                     // Build the ListView
@@ -39,22 +41,19 @@ class MyAppState extends State<MyApp> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            Text("Name: " + new_data[index]['name']),
-                            Text("Height: " + new_data[index]['height']),
-                            Text("Mass: " + new_data[index]['mass']),
-                            Text(
-                                "Hair Color: " + new_data[index]['hair_color']),
-                            Text(
-                                "Skin Color: " + new_data[index]['skin_color']),
-                            Text("Eye Color: " + new_data[index]['eye_color']),
-                            Text(
-                                "Birth Year: " + new_data[index]['birth_year']),
-                            Text("Gender: " + new_data[index]['gender'])
+                            Text("Name: ${newData[index]['name']}"),
+                            Text("Height: ${newData[index]['height']}"),
+                            Text("Mass: ${newData[index]['mass']}"),
+                            Text("Hair Color: ${newData[index]['hair_color']}"),
+                            Text("Skin Color: ${newData[index]['skin_color']}"),
+                            Text("Eye Color: ${newData[index]['eye_color']}"),
+                            Text("Birth Year: ${newData[index]['birth_year']}"),
+                            Text("Gender: ${newData[index]['gender']}")
                           ],
                         ),
                       );
                     },
-                    itemCount: new_data == null ? 0 : new_data.length,
+                    itemCount: newData == null ? 0 : newData.length,
                   );
                 }),
           ),

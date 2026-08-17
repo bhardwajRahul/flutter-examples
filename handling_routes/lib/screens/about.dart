@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class AboutPage extends StatelessWidget {
   static const String routeName = "/about";
 
+  const AboutPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

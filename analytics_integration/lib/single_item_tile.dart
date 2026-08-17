@@ -7,7 +7,7 @@ class SingleItemTile extends StatefulWidget {
   final double quantity;
   final FirebaseAnalytics analytics;
 
-  SingleItemTile({
+  const SingleItemTile({super.key, 
     required this.itemName,
     required this.price,
     required this.quantity,
@@ -76,7 +76,7 @@ class _SingleItemTileState extends State<SingleItemTile> {
                       ),
                     ),
                     Text(
-                      widget.quantity.toString() + ' kg',
+                      '${widget.quantity} kg',
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: 12,

@@ -16,15 +16,15 @@ void main() {
           // Body
           body: Container(
               // Center the content
+              decoration: BoxDecoration(
+                  // Add Gradient
+                  gradient: utils.getCustomGradient()),
+              // Center the content
               child: Center(
                 // Add Text
                 child: Text(
                   "Hello World!",
                   style: TextStyle(color: Colors.white),
                 ),
-              ),
-              // Set background
-              decoration: BoxDecoration(
-                  // Add Gradient
-                  gradient: utils.getCustomGradient())))));
+              )))));
 }

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.statless_counter_app"
+    namespace = "github.nisrulz.statless_counter_app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.statless_counter_app"
+        applicationId = "github.nisrulz.statless_counter_app"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

@@ -5,9 +5,9 @@ import 'package:bmi_calculator/palette.dart';
 
 class CalculatorPage extends StatelessWidget {
   CalculatorPage({
-    Key? key,
+    super.key,
     required this.title,
-  }) : super(key: key);
+  });
 
   final String title;
 

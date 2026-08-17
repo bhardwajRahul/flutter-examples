@@ -4,7 +4,14 @@ void main() {
   runApp(MaterialApp(title: 'Tip Calculator', home: TipCalculator()));
 }
 
-class TipCalculator extends StatelessWidget {
+class TipCalculator extends StatefulWidget {
+  const TipCalculator({super.key});
+
+  @override
+  State<TipCalculator> createState() => _TipCalculatorState();
+}
+
+class _TipCalculatorState extends State<TipCalculator> {
   double billAmount = 0.0;
   double tipPercentage = 0.0;
 
@@ -49,7 +56,8 @@ class TipCalculator extends StatelessWidget {
                   "Total: \$$total"));
 
           // Show dialog
-          showDialog(context: context, builder: (BuildContext context) => dialog);
+          showDialog(
+              context: context, builder: (BuildContext context) => dialog);
         });
 
     Container container = Container(

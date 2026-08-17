@@ -1,5 +1,5 @@
 name: bmi_calculator
-description: A new Flutter module project.
+description: A new Flutter project.
 
 version: 1.0.0+1
 
@@ -19,8 +19,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-  module:
-    androidX: true
-    androidPackage: github.nisrulz.bmi_calculator
-    iosBundleIdentifier: github.nisrulz.bmiCalculator

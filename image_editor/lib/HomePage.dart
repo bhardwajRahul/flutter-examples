@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:image_editor/ApplyFilters.dart';
 import 'package:image_editor/EditImg.dart';
 import 'package:image_editor/GetImg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_editor/SaveInGallery.dart';
 import 'dart:io';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -15,7 +16,8 @@ class _HomePageState extends State<HomePage> {
   bool _selected = false; //to check if a image is selected or not
   late File
       _image; //here we will store the selected image and apply modifications
-  double _ImageContainerHeight = 450, _ImageContainerWidth = 400;
+  final double _ImageContainerHeight = 450;
+  final double _ImageContainerWidth = 400;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
           child: Column(
         children: <Widget>[
-          Container(
+          SizedBox(
               height: _ImageContainerHeight,
               width: _ImageContainerWidth,
               child: _selected // checks if a image is selected or not
@@ -46,11 +48,11 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
-                    var _Ifile = await GetiImg(
+                    var Ifile = await GetiImg(
                         _image); // function called from GetImg.dart
-                    if (_Ifile != null) {
+                    if (Ifile != null) {
                       setState(() {
-                        _image = _Ifile;
+                        _image = Ifile;
                         _selected = true;
                       });
                     }
@@ -66,23 +68,12 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
-                    if (_image != null) {
-                      var _Ifile = await EditImg(
-                          _image); // function called from EditImg.dart
-                      if (_Ifile != null) {
-                        setState(() {
-                          _image = _Ifile;
-                        });
-                      }
-                    } else {
-                      Fluttertoast.showToast(
-                          msg: "Select a image first :-(",
-                          toastLength: Toast.LENGTH_SHORT,
-                          gravity: ToastGravity.BOTTOM,
-                          timeInSecForIosWeb: 1,
-                          backgroundColor: Colors.green,
-                          textColor: Colors.white,
-                          fontSize: 16.0);
+                    var Ifile0 = await EditImg(
+                        _image); // function called from EditImg.dart
+                    if (Ifile0 != null) {
+                      setState(() {
+                        _image = Ifile0;
+                      });
                     }
                   }),
               Spacer(
@@ -103,23 +94,12 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
-                    if (_image != null) {
-                      var _Ifile = await ApplyFilters(context,
-                          _image); // function called from ApplyFilters.dart
-                      if (_Ifile != null) {
-                        setState(() {
-                          _image = _Ifile;
-                        });
-                      }
-                    } else {
-                      Fluttertoast.showToast(
-                          msg: "Select a image first :-(",
-                          toastLength: Toast.LENGTH_SHORT,
-                          gravity: ToastGravity.BOTTOM,
-                          timeInSecForIosWeb: 1,
-                          backgroundColor: Colors.green,
-                          textColor: Colors.white,
-                          fontSize: 16.0);
+                    var Ifile0 = await ApplyFilters(context,
+                        _image); // function called from ApplyFilters.dart
+                    if (Ifile0 != null) {
+                      setState(() {
+                        _image = Ifile0;
+                      });
                     }
                   }),
               Spacer(
@@ -133,19 +113,8 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
-                    if (_image != null) {
-                      await SaveImg(
-                          _image); // function called from SaveInGallery.dart
-                    } else {
-                      Fluttertoast.showToast(
-                          msg: "Select a image first :-(",
-                          toastLength: Toast.LENGTH_SHORT,
-                          gravity: ToastGravity.BOTTOM,
-                          timeInSecForIosWeb: 1,
-                          backgroundColor: Colors.green,
-                          textColor: Colors.white,
-                          fontSize: 16.0);
-                    }
+                    await SaveImg(
+                        _image); // function called from SaveInGallery.dart
                   }),
               Spacer(
                 flex: 2,

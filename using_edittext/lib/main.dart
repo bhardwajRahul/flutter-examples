@@ -7,6 +7,8 @@ void main() {
 }
 
 class MyEditText extends StatefulWidget {
+  const MyEditText({super.key});
+
   @override
   MyEditTextState createState() => MyEditTextState();
 }
@@ -33,7 +35,7 @@ class MyEditTextState extends State<MyEditText> {
                 decoration: InputDecoration(hintText: "Enter text here..."),
                 onSubmitted: (String str) {
                   setState(() {
-                    results = results + "\n" + str;
+                    results = "$results\n$str";
                     controller.text = "";
                   });
                 },

@@ -129,13 +129,13 @@ Widget buildInnerBottomWidget(String cases) {
                   context.findAncestorStateOfType<SimpleFoldingCellState>();
               foldingCellState?.toggleFold();
             },
-            child: Text(
-              "Close",
-            ),
             style: TextButton.styleFrom(
               foregroundColor: Colors.black,
               shape: StadiumBorder(),
-              overlayColor: Colors.white.withOpacity(0.5),
+              overlayColor: Colors.white.withValues(alpha: 0.5),
+            ),
+            child: Text(
+              "Close",
             ),
           ),
         ],

@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import '../models/todo.dart';
 
 class TodoListItemToggleButton extends StatelessWidget {
+  const TodoListItemToggleButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     print('build Toggle Item Button');

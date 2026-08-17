@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class NewWidget extends StatelessWidget {
   final Widget l;
   final String s;
-  double radius = 8;
-  NewWidget({required this.size, required this.l, required this.s});
+  final double radius = 8;
+  const NewWidget(
+      {super.key, required this.size, required this.l, required this.s});
   final double size;
 
   @override
@@ -20,7 +21,7 @@ class NewWidget extends StatelessWidget {
           BoxShadow(
             offset: Offset(5, 5),
             blurRadius: radius,
-            color: Color(0XFF585858).withOpacity(.3),
+            color: Color(0XFF585858).withValues(alpha: .3),
           ),
         ],
       ),

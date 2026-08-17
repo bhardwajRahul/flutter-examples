@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'roundcontainer.dart';
 
 class Listwheel extends StatefulWidget {
+  const Listwheel({super.key});
+
   @override
   _ListwheelState createState() => _ListwheelState();
 }
@@ -16,6 +17,10 @@ class _ListwheelState extends State<Listwheel> {
       backgroundColor: Colors.white70,
       body: Container(
         child: ListWheelScrollView(
+          squeeze: 1.0,
+          itemExtent: 180,
+          diameterRatio: 1.9,
+          offAxisFraction: -0.5,
           children: [
             NewWidget(
                 size: size,
@@ -74,10 +79,6 @@ class _ListwheelState extends State<Listwheel> {
                 ),
                 s: 'Email'),
           ],
-          squeeze: 1.0,
-          itemExtent: 180,
-          diameterRatio: 1.9,
-          offAxisFraction: -0.5,
         ),
       ),
     );

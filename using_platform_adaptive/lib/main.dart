@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:using_platform_adaptive/common_widgets/adaptive_button.dart';
 import 'package:using_platform_adaptive/common_widgets/adaptive_date_picker.dart';

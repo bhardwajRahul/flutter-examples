@@ -1,18 +1,18 @@
 import 'package:photofilters/photofilters.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
-import 'package:image/image.dart' as imageLib;
+import 'package:image/image.dart' as image_lib;
 
-ApplyFilters(context, _image) async {
-  var image = imageLib.decodeImage(_image.readAsBytesSync())!;
-  image = imageLib.copyResize(image, width: 600);
-  String fileName = basename(_image.path);
+Future<dynamic> ApplyFilters(context, image) async {
+  var decoded = image_lib.decodeImage(image.readAsBytesSync())!;
+  decoded = image_lib.copyResize(decoded, width: 600);
+  String fileName = basename(image.path);
   Map imagefile = await Navigator.push(
     context,
-    new MaterialPageRoute(
-      builder: (context) => new PhotoFilterSelector(
+    MaterialPageRoute(
+      builder: (context) => PhotoFilterSelector(
         title: Text("Photo Filter Example"),
-        image: image,
+        image: decoded,
         appBarColor: Colors.greenAccent[400]!,
         filters: presetFiltersList,
         filename: fileName,
@@ -21,9 +21,8 @@ ApplyFilters(context, _image) async {
       ),
     ),
   );
-  if (imagefile != null && imagefile.containsKey('image_filtered')) {
-    _image = imagefile['image_filtered'];
-    return _image;
+  if (imagefile.containsKey('image_filtered')) {
+    return imagefile['image_filtered'];
   } else {
     return null;
   }

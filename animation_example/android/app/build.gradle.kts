@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.penassignment"
+    namespace = "github.nisrulz.animation_example"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.penassignment"
+        applicationId = "github.nisrulz.animation_example"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lunch_app/views/prototype/food_detail_view.dart';
 
 import 'views/prototype/home.dart';
 
 void main() => runApp(LunchApp());
 
 class LunchApp extends StatelessWidget {
+  const LunchApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

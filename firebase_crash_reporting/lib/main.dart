@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 
-main() {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runZonedGuarded(() {
     runApp(App());
@@ -15,6 +15,8 @@ main() {
 }
 
 class App extends StatelessWidget {
+  const App({super.key});
+
 
   //initialise firebase and crashlytics
   Future<void> _initializeFirebase() async {
@@ -56,6 +58,8 @@ class App extends StatelessWidget {
 }
 
 class CrashApp extends StatelessWidget {
+  const CrashApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(

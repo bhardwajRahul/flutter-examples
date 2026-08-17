@@ -22,7 +22,7 @@ class CalculateButton extends StatelessWidget {
       child: TextButton(
         style: ButtonStyle(
           overlayColor:
-              MaterialStateProperty.all(Colors.white.withOpacity(0.10)),
+              WidgetStateProperty.all(Colors.white.withValues(alpha: 0.10)),
         ),
         onPressed: onTap,
         child: const Text(

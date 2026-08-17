@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lunch_app/views/prototype/food_detail_view.dart';
 
 class FoodLister extends StatefulWidget {
+  const FoodLister({super.key});
+
   @override
   _FoodListerState createState() => _FoodListerState();
 }
@@ -12,7 +14,7 @@ class _FoodListerState extends State<FoodLister> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.width * 0.8,
       child: PageView.builder(
         scrollDirection: Axis.horizontal,

@@ -1,3 +1,7 @@
+# Lint rules for Flutter apps.
+# See https://dart.dev/guides/language/analysis-options
+include: package:flutter_lints/flutter.yaml
+
 analyzer:
   exclude:
     - build/**
@@ -7,7 +11,13 @@ analyzer:
     - windows/**
     - macos/**
     - linux/**
-include: package:flutter_lints/flutter.yaml
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+linter:
+  rules:
+    # Noise in small sample apps; keep the code readable.
+    avoid_print: false
+    avoid_unnecessary_containers: false
+    file_names: false
+    library_private_types_in_public_api: false
+    non_constant_identifier_names: false
+    strict_top_level_inference: false

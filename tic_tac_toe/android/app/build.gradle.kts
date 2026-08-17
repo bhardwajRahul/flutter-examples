@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.tic_tac_toe"
+    namespace = "github.nisrulz.tic_tac_toe"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.tic_tac_toe"
+        applicationId = "github.nisrulz.tic_tac_toe"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

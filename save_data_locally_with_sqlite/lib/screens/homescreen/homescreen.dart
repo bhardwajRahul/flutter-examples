@@ -3,6 +3,8 @@ import 'package:save_data_locally_with_sqlite/database/database_queries.dart';
 import 'package:save_data_locally_with_sqlite/screens/homescreen/widgets/note_container.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
