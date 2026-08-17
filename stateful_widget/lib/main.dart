@@ -1,58 +1,19 @@
 import 'package:flutter/material.dart';
 
+import 'example.dart';
+
 void main() {
-  runApp(MaterialApp(
-    home: MyButton(),
-  ));
+  runApp(const MyApp());
 }
 
-class MyButton extends StatefulWidget {
-  const MyButton({super.key});
-
-  @override
-  MyButtonState createState() {
-    return MyButtonState();
-  }
-}
-
-class MyButtonState extends State<MyButton> {
-  int counter = 0;
-  List<String> strings = ['Flutter', 'is', 'cool', "and", "awesome!"];
-  String displayedString = "Hello World!";
-
-  void onPressOfButton() {
-    setState(() {
-      displayedString = strings[counter];
-      counter = counter < 4 ? counter + 1 : 0;
-    });
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Stateful Widget"),
-        backgroundColor: Colors.green,
-      ),
-      body: Container(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(displayedString, style: TextStyle(fontSize: 40.0)),
-              Padding(padding: EdgeInsets.all(10.0)),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                onPressed: onPressOfButton,
-                child: Text(
-                  "Press me",
-                  style: TextStyle(color: Colors.white),
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+    return MaterialApp(
+      title: "Stateful Widget",
+      home: const Example(),
     );
   }
 }

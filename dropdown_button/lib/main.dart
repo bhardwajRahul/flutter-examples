@@ -1,68 +1,20 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+import 'example.dart';
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  State<StatefulWidget> createState() {
-    return MyAppState();
-  }
+void main() {
+  runApp(const MyApp());
 }
 
-class MyAppState extends State<MyApp> {
-  final List<String> _fruits = ["Apple", "Banana", "Pineapple", "Mango", "Grapes"];
-
-  late List<DropdownMenuItem<String>> _dropDownMenuItems;
-  late String _selectedFruit;
-
-  @override
-  void initState() {
-    _dropDownMenuItems = buildAndGetDropDownMenuItems(_fruits);
-    _selectedFruit = _dropDownMenuItems[0].value!;
-    super.initState();
-  }
-
-  List<DropdownMenuItem<String>> buildAndGetDropDownMenuItems(
-      List<String> fruits) {
-    List<DropdownMenuItem<String>> items = [];
-    for (String fruit in fruits) {
-      items.add(DropdownMenuItem(value: fruit, child: Text(fruit)));
-    }
-    return items;
-  }
-
-  void changedDropDownItem(String? selectedFruit) {
-    setState(() {
-      _selectedFruit = selectedFruit!;
-    });
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("DropDown Button Example"),
-        ),
-        body: Container(
-          child: Center(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text("Please choose a fruit: "),
-              DropdownButton<String>(
-                value: _selectedFruit,
-                items: _dropDownMenuItems,
-                onChanged: changedDropDownItem,
-              )
-            ],
-          )),
-        ),
-      ),
+      title: "DropDown Button Example",
+      home: const Example(),
     );
   }
 }

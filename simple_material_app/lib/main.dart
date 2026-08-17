@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 
+import 'example.dart';
+
 void main() {
-  runApp(MaterialApp(
-      // Title
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       title: "Simple Material App",
-      // Home
-      home: Scaffold(
-        // Appbar
-        appBar: AppBar(
-          // Title
-          title: Text("Simple Material App"),
-        ),
-        // Body
-        body: Container(
-          // Center the content
-          child: Center(
-            // Add Text
-            child: Text("Hello World!"),
-          ),
-        ),
-      )));
+      home: const Example(),
+    );
+  }
 }
