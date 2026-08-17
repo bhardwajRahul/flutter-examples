@@ -1,13 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_google_authentication/Screens/HomePage.dart';
 import 'package:firebase_google_authentication/Services/google_auth.dart';
+import 'package:firebase_google_authentication/example.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       create: (context) => GoogleSignInProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: const Example(),
       ),
     );
   }

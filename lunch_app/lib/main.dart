@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'views/prototype/home.dart';
+import 'example.dart';
 
 void main() => runApp(LunchApp());
 
@@ -23,7 +23,7 @@ class LunchApp extends StatelessWidget {
           ),
         ),
       ),
-      home: Home(),
+      home: const Example(),
     );
   }
 }

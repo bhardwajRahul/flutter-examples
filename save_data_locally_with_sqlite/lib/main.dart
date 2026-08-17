@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:save_data_locally_with_sqlite/screens/homescreen/homescreen.dart';
+import 'example.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: const Example(),
     );
   }
 }

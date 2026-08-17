@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:news_memes_app/Screens/HomePage.dart';
+import 'example.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: HomePage(),
-  ));
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: const Example(),
+    );
+  }
 }

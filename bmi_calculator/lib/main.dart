@@ -1,6 +1,7 @@
-import 'package:bmi_calculator/calculator/calculator_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'example.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'BMI Calculator',
-      home: CalculatorPage(title: 'BMI CALCULATOR'),
+      home: const Example(),
     );
   }
 }

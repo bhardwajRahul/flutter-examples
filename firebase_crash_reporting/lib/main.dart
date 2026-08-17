@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 
+import 'example.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runZonedGuarded(() {
@@ -17,12 +19,12 @@ void main() {
 class App extends StatelessWidget {
   const App({super.key});
 
-
   //initialise firebase and crashlytics
   Future<void> _initializeFirebase() async {
     await Firebase.initializeApp();
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,7 +42,7 @@ class App extends StatelessWidget {
             }
             //firebase and crashlytics initialise complete
             if (snapshot.connectionState == ConnectionState.done) {
-              return CrashApp();
+              return const Example();
             }
             return Center(
               child: Column(
@@ -52,34 +54,6 @@ class App extends StatelessWidget {
             );
           },
         ),
-      ),
-    );
-  }
-}
-
-class CrashApp extends StatelessWidget {
-  const CrashApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ElevatedButton(
-              onPressed: () {
-                //custom Crashlytics log message
-                FirebaseCrashlytics.instance.log("It's a bug");
-              },
-              child: Text("Custom Log")),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            child: Text('Crash the app'),
-            onPressed: () {
-              FirebaseCrashlytics.instance.crash();
-            },
-          ),
-        ],
       ),
     );
   }

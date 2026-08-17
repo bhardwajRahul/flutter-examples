@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home.dart';
+import 'example.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         ).copyWith(secondary: Color(0xfff4796b)),
         brightness: Brightness.dark,
       ),
-      home: Home(),
+      home: const Example(),
     );
   }
 }
