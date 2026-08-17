@@ -10,6 +10,7 @@ All maintenance commands are available through the `Makefile` at the repository 
 | `make packages` | Run `flutter packages get` for all example apps |
 | `make clean-builds` | Move all build folders to trash |
 | `make gradle-update` | Upgrade Gradle wrappers to the latest version |
+| `make docs` | Regenerate `documentation/EXAMPLES.md` from the app folders |
 
 ## Update Gradle wrappers
 

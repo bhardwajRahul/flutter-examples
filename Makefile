@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: help packages clean-builds gradle-update
+.PHONY: help packages clean-builds gradle-update docs
 
 help: ## Show available commands
 	@echo "Available commands:"
@@ -9,6 +9,7 @@ help: ## Show available commands
 	@echo "  make packages         Run 'flutter packages get' for all apps"
 	@echo "  make clean-builds     Move all build folders to trash"
 	@echo "  make gradle-update    Upgrade Gradle wrappers"
+	@echo "  make docs             Regenerate documentation/EXAMPLES.md"
 	@echo ""
 	@echo "gradle-update options:"
 	@echo "  VERSION=<x.y.z>   Target Gradle version (default: latest from GitHub)"
@@ -25,6 +26,9 @@ packages: ## Run flutter packages get for all apps
 
 clean-builds: ## Move all build folders to trash
 	./scripts/delete_build_folder.sh
+
+docs: ## Regenerate documentation/EXAMPLES.md from app folders
+	./scripts/generate_examples_doc.sh
 
 gradle-update: ## Upgrade Gradle wrappers
 	@args=""; \
