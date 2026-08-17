@@ -1,59 +1,28 @@
 import 'package:flutter/material.dart';
 
+import 'example.dart';
+
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: MyHome(),
-    // Set the theme's primary color, accent color,
-    theme: ThemeData(
-      primarySwatch: Colors.green,
-      colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green)
-          .copyWith(secondary: Colors.lightGreenAccent),
-      // Set background color
-      scaffoldBackgroundColor: Colors.black12,
-    ),
-  ));
+  runApp(const MyApp());
 }
 
-class MyHome extends StatelessWidget {
-  const MyHome({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // AppBar
-      appBar: AppBar(
-        // AppBar Title
-        title: Text("Using Theme"),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Using Theme",
+      // Set the theme's primary color, accent color,
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green)
+            .copyWith(secondary: Colors.lightGreenAccent),
+        // Set background color
+        scaffoldBackgroundColor: Colors.black12,
       ),
-      body: Container(
-        // Another way to set the background color
-        decoration: BoxDecoration(color: Colors.black87),
-        child: Center(
-          child: Container(
-            // use the theme accent color as background color for this widget
-            color: Theme.of(context).colorScheme.secondary,
-            child: Text(
-              'Hello World!',
-              // Set text style as per theme
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-          ),
-        ),
-      ),
-
-      floatingActionButton: Theme(
-        // override the accent color of theme for this widget only
-        data: Theme.of(context).copyWith(
-          colorScheme: Theme.of(context)
-              .colorScheme
-              .copyWith(secondary: Colors.pinkAccent),
-        ),
-        child: FloatingActionButton(
-          onPressed: null,
-          child: Icon(Icons.add),
-        ),
-      ),
+      home: const Example(),
     );
   }
 }

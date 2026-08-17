@@ -1,51 +1,19 @@
 import 'package:flutter/material.dart';
 
+import 'example.dart';
+
 void main() {
-  runApp(MaterialApp(
-    home: MyEditText(),
-  ));
+  runApp(const MyApp());
 }
 
-class MyEditText extends StatefulWidget {
-  const MyEditText({super.key});
-
-  @override
-  MyEditTextState createState() => MyEditTextState();
-}
-
-class MyEditTextState extends State<MyEditText> {
-  String results = "";
-
-  final TextEditingController controller = TextEditingController();
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Using EditText"),
-        backgroundColor: Colors.red,
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(10.0),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              TextField(
-                decoration: InputDecoration(hintText: "Enter text here..."),
-                onSubmitted: (String str) {
-                  setState(() {
-                    results = "$results\n$str";
-                    controller.text = "";
-                  });
-                },
-                controller: controller,
-              ),
-              Text(results)
-            ],
-          ),
-        ),
-      ),
+    return MaterialApp(
+      title: "Using EditText",
+      home: const Example(),
     );
   }
 }

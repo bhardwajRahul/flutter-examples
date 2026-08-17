@@ -1,42 +1,19 @@
 import 'package:flutter/material.dart';
 
+import 'example.dart';
+
 void main() {
-  runApp(MaterialApp(
-    home: MyHome(),
-  ));
+  runApp(const MyApp());
 }
 
-class MyHome extends StatefulWidget {
-  const MyHome({super.key});
-
-  @override
-  MyHomeState createState() => MyHomeState();
-}
-
-class MyHomeState extends State<MyHome> {
-  // Generate dialog
-  AlertDialog dialog = AlertDialog(
-      content: Text(
-    "Hello World!",
-    style: TextStyle(fontSize: 30.0),
-  ));
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Using Alert Dialog"),
-        ),
-        body: Container(
-          child: Center(
-            child: ElevatedButton(
-                child: Text("Hit to alert!"),
-                // On press of the button
-                onPressed: () {
-                  // Show dialog
-                  showDialog(context: context, builder: (BuildContext context) => dialog);
-                }),
-          ),
-        ));
+    return MaterialApp(
+      title: "Using Alert Dialog",
+      home: const Example(),
+    );
   }
 }

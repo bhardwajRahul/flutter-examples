@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'example.dart';
+
 void main() {
-  runApp(MaterialApp(
-    home: MyApp(),
-  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,23 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Load local image"),
-        ),
-        body: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  // Load image from assets
-                  image: AssetImage('data_repo/img/bg1.jpg'),
-                  // Make the image cover the whole area
-                  fit: BoxFit.cover)),
-          child: Center(
-            child: Text(
-              "Hello World!",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ));
+    return MaterialApp(
+      title: "Load local image",
+      home: const Example(),
+    );
   }
 }

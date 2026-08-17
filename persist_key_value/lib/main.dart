@@ -1,101 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import 'example.dart';
 
 void main() {
-  runApp(MaterialApp(
-      // Disable the debug flag
-      debugShowCheckedModeBanner: false,
-      // Home
-      home: MyHome()));
+  runApp(const MyApp());
 }
 
-class MyHome extends StatefulWidget {
-  const MyHome({super.key});
-
-  @override
-  MyHomeState createState() {
-    return MyHomeState();
-  }
-}
-
-class MyHomeState extends State<MyHome> {
-  var nameOfApp = "Persist Key Value";
-
-  var counter = 0;
-
-  // define a key to use later
-  var key = "counter";
-
-  @override
-  void initState() {
-    super.initState();
-    _loadSavedData();
-  }
-
-  Future<void> _loadSavedData() async {
-    // Get shared preference instance
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      // Get value
-      counter = (prefs.getInt(key) ?? 0);
-    });
-  }
-
-  Future<void> _onIncrementHit() async {
-    // Get shared preference instance
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    setState(() {
-      // Get value
-      counter = (prefs.getInt(key) ?? 0) + 1;
-    });
-
-    // Save Value
-    prefs.setInt(key, counter);
-  }
-
-  Future<void> _onDecrementHit() async {
-    // Get shared preference instance
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    setState(() {
-      // Get value
-      counter = (prefs.getInt(key) ?? 0) - 1;
-    });
-
-    // Save Value
-    prefs.setInt(key, counter);
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // Appbar
-      appBar: AppBar(
-        // Title
-        title: Text(nameOfApp),
-      ),
-      // Body
-      body: Container(
-        // Center the content
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                '$counter',
-                textScaler: TextScaler.linear(10.0),
-              ),
-              Padding(padding: EdgeInsets.all(10.0)),
-              ElevatedButton(
-                  onPressed: _onIncrementHit, child: Text('Increment Counter')),
-              Padding(padding: EdgeInsets.all(10.0)),
-              ElevatedButton(
-                  onPressed: _onDecrementHit, child: Text('Decrement Counter')),
-            ],
-          ),
-        ),
-      ),
+    return MaterialApp(
+      // Disable the debug flag
+      debugShowCheckedModeBanner: false,
+      // Title
+      title: "Persist Key Value",
+      // Home
+      home: const Example(),
     );
   }
 }

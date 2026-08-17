@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+import 'example.dart';
+
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,32 +17,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: Scaffold(
-          body: NestedScrollView(
-            floatHeaderSlivers: true,
-            headerSliverBuilder: (context, innerBoxIsScrolled) => [
-              const SliverAppBar(
-                expandedHeight: 240,
-                flexibleSpace: FlexibleSpaceBar(
-                  title: Text('Sliver App Bar Demo'),
-                  background: Image(
-                    image: AssetImage('assets/sample.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                floating: true,
-              ),
-            ],
-            body: ListView.separated(
-                padding: const EdgeInsets.all(12),
-                itemCount: 30,
-                itemBuilder: (context, index) => ListTile(
-                      title: Text('Item $index'),
-                    ),
-                separatorBuilder: (context, index) => const SizedBox(
-                      height: 10,
-                    )),
-          ),
-        ));
+        home: const Example());
   }
 }
