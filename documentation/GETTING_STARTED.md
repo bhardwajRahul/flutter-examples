@@ -37,19 +37,24 @@ flutter run
 
 ## Download a single example
 
-The repository is large. If you only want one example, use `svn`:
+The repository is large. If you only want one example, use git sparse-checkout:
 
-1. Install `svn` (macOS / Linux):
-   ```bash
-   brew install svn
-   ```
-2. Replace `example_folder` in the command below with the example folder name:
-   ```bash
-   svn checkout https://github.com/nisrulz/flutter-examples/trunk/example_folder
-   ```
-3. Example:
-   ```bash
-   svn checkout https://github.com/nisrulz/flutter-examples/trunk/simple_material_app
-   ```
+```bash
+git clone --no-checkout https://github.com/nisrulz/flutter-examples.git
+cd flutter-examples
+git sparse-checkout init --cone
+git sparse-checkout set <example_folder>
+git checkout
+```
 
-That's it. You now have the single example checked out.
+Example:
+
+```bash
+git clone --no-checkout https://github.com/nisrulz/flutter-examples.git
+cd flutter-examples
+git sparse-checkout init --cone
+git sparse-checkout set simple_material_app
+git checkout
+```
+
+You now have the single example checked out.
