@@ -30,6 +30,18 @@ make gradle-update FORCE=1                     # latest version, force update
 make gradle-update VERSION=9.7.0 FORCE=1       # specific version, force update
 ```
 
+## Firebase apps
+
+These apps connect to Firebase and need a developer-provided `google-services.json`
+in `<app>/android/app/` before they can be built:
+
+- `firebase_google_authentication`
+- `google_signin`
+- `using_firebase_db`
+
+The file is never committed because it contains your Firebase project config.
+Create a Firebase project for each app and download the file from the Firebase console.
+
 ## Requirements
 
 - `make` (preinstalled on macOS and most Linux systems)
