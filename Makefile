@@ -1,12 +1,15 @@
 SHELL := /bin/bash
 
-.PHONY: help packages clean-builds gradle-update docs
+.PHONY: help packages clean-builds gradle-update docs analyze test doctor
 
 help: ## Show available commands
 	@echo "Available commands:"
 	@echo ""
 	@echo "  make help             Show this help"
 	@echo "  make packages         Run 'flutter packages get' for all apps"
+	@echo "  make analyze          Run 'flutter analyze' for all apps"
+	@echo "  make test             Run 'flutter test' for all apps with tests"
+	@echo "  make doctor           Check every app for configuration drift"
 	@echo "  make clean-builds     Move all build folders to trash"
 	@echo "  make gradle-update    Upgrade Gradle wrappers"
 	@echo "  make docs             Regenerate documentation/EXAMPLES.md"
@@ -23,6 +26,15 @@ help: ## Show available commands
 
 packages: ## Run flutter packages get for all apps
 	./scripts/get_packages.sh
+
+analyze: ## Run flutter analyze for all apps
+	./scripts/analyze_all.sh
+
+test: ## Run flutter test for all apps that have tests
+	./scripts/test_all.sh
+
+doctor: ## Check all apps for configuration drift
+	./scripts/repo_doctor.sh
 
 clean-builds: ## Move all build folders to trash
 	./scripts/delete_build_folder.sh

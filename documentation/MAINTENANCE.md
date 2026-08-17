@@ -8,6 +8,9 @@ All maintenance commands are available through the `Makefile` at the repository 
 | --- | --- |
 | `make help` | Show all available commands |
 | `make packages` | Run `flutter packages get` for all example apps |
+| `make analyze` | Run `flutter analyze` for all example apps |
+| `make test` | Run `flutter test` for all example apps that have tests |
+| `make doctor` | Check every app for configuration drift |
 | `make clean-builds` | Move all build folders to trash |
 | `make gradle-update` | Upgrade Gradle wrappers to the latest version |
 | `make docs` | Regenerate `documentation/EXAMPLES.md` from the app folders |
@@ -15,6 +18,17 @@ All maintenance commands are available through the `Makefile` at the repository 
 ## Update Gradle wrappers
 
 `make gradle-update` upgrades the Gradle wrapper of every example app.
+
+## Drift checks
+
+`make doctor` scans every example app and reports configuration drift: non-standard
+SDK constraints, missing `analysis_options.yaml` or `flutter_lints`, pubspec names
+that do not match their folder, Android `applicationId`s outside the
+`github.nisrulz.*` convention, non-standard Gradle versions, apps missing from
+`EXAMPLES.md`, and generated files accidentally tracked in git. It exits non-zero
+when issues are found, so you can use it as a pre-commit gate.
+
+Run `make analyze` after changing any app to confirm `flutter analyze` is clean.
 
 | Option | Description |
 | --- | --- |
@@ -37,6 +51,7 @@ in `<app>/android/app/` before they can be built:
 
 - `firebase_google_authentication`
 - `google_signin`
+- `push_notifications`
 - `using_firebase_db`
 
 The file is never committed because it contains your Firebase project config.
